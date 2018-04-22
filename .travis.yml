@@ -12,5 +12,5 @@ before_install:
   - sudo chmod +x /usr/local/share/chromedriver
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   
-env
+env:
   - CHROME_BINARY_PATH=/usr/bin/google-chrome-stable
