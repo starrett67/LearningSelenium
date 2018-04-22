@@ -13,4 +13,4 @@ before_install:
 before_script: sudo chmod +x resources/chromedriver
 
 env:
- - WEB_DRIVER_URL=http://localhost:9222
+	- WEB_DRIVER_URL=http://localhost:9222
