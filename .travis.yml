@@ -4,4 +4,8 @@ dist: trusty
 addons:
   chrome: stable
 
+before_install:
+  - wget https://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip -d resources
+
 before_script: sudo chmod +x resources/chromedriver
