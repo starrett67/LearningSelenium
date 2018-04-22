@@ -20,11 +20,7 @@ public class WebDriverHelper{
 	}
 	
 	private void init() throws MalformedURLException {
-		String webDriverUrl = System.getenv("WEB_DRIVER_URL");
-		if(webDriverUrl != null) {
-			driver = new RemoteWebDriver(new URL(webDriverUrl), DesiredCapabilities.chrome());
-		}
-		else {
+		
 			String driverPath = "resources/chromedriver";
 			if (System.getProperty("os.name").contains("Windows")) {
 				driverPath += ".exe";
@@ -38,7 +34,6 @@ public class WebDriverHelper{
 				chromeOptions.addArguments("disable-gpu");
 			}
 			driver = new ChromeDriver(chromeOptions);
-		}
 	}
 
 }
