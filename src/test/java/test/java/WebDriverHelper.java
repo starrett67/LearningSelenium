@@ -25,7 +25,7 @@ public class WebDriverHelper{
 			if (System.getProperty("os.name").contains("Windows")) {
 				driverPath += ".exe";
 			}
-			String chromePath = System.getProperty("CHROME_BINARY_PATH");
+			String chromePath = System.getProperty("google.chrome");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			if (chromePath != null) {
 			    chromeOptions.setBinary(chromePath);
