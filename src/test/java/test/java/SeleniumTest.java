@@ -1,17 +1,18 @@
 package test.java;
 
 
+import java.net.MalformedURLException;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import roomstogo.com.utils;
-import roomstogo.com.home.*;
+import roomstogo.com.home.Home;
+import roomstogo.com.home.TopNavigation;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class SeleniumTest {
@@ -19,21 +20,9 @@ class SeleniumTest {
 	WebDriver driver;
 
 	@BeforeAll
-	public void init() {
-		String driverPath = "resources/chromedriver";
-		if (System.getProperty("os.name").contains("Windows")) {
-			driverPath += ".exe";
-		}
-		System.setProperty("webdriver.chrome.driver", driverPath);
-		String env = System.getProperty("env");
-		ChromeOptions chromeOptions = new ChromeOptions();
-		
-		if (env != null && env.equals("test")) {
-			chromeOptions.addArguments("--headless");
-		}
-
-		driver = new ChromeDriver(chromeOptions);
-		driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
+	public void init() throws MalformedURLException {
+		WebDriverHelper helper = new WebDriverHelper();
+		driver = helper.driver;
 		driver.get("https://www.roomstogo.com");		
 		utils.waitForPageToLoad(driver);
 	}
