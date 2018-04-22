@@ -1,6 +1,4 @@
 language: java
-jdk:
-  - openjdk8
 sudo: required
 dist: trusty
 addons:
@@ -15,11 +13,10 @@ before_install:
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   
 script:
-  - set -e
-  - whereis google-chrome-stable
-  - google-chrome-stable --version
-  - whereis chromedriver
   - mvn clean install -Dgoogle.chrome=/usr/bin/google-chrome-stable
-  
+
+after_failure:
+  - cat target/surefire-reports/*.txt
+
 env:
   - CHROME_BINARY_PATH=/usr/bin/google-chrome-stable
