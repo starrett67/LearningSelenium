@@ -11,8 +11,6 @@ before_install:
   - sudo mv -f chromedriver /usr/local/share/
   - sudo chmod +x /usr/local/share/chromedriver
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-  - export CHROME_BINARY_PATH=$(whereis google-chrome-stable)
-
-script:
-  - whereis google-chrome-stable
-  - whereis chromedriver
+  
+env
+  - CHROME_BINARY_PATH=/usr/bin/google-chrome-stable
