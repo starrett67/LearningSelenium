@@ -30,10 +30,11 @@ public class WebDriverHelper{
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--no-sandbox");
 			chromeOptions.addArguments("-verbose");
-//			if (env != null && env.equals("test")) {
-//				chromeOptions.addArguments("--headless");
-//				chromeOptions.addArguments("disable-gpu");
-//			}
+			if (env != null && env.equals("test")) {
+			    chromeOptions.setBinary("/path/to/google-chrome-stable");
+			    chromeOptions.addArguments("--headless");
+			    chromeOptions.addArguments("--disable-gpu");
+			}
 			driver = new ChromeDriver(chromeOptions);
 	}
 
