@@ -14,9 +14,9 @@ public class WebDriverHelper{
 	
 	WebDriver driver;
 	
-	public WebDriverHelper() throws MalformedURLException {		
-		driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
+	public WebDriverHelper() throws MalformedURLException {
 		init();
+		driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
 	}
 	
 	private void init() throws MalformedURLException {
