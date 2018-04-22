@@ -21,8 +21,7 @@ class SeleniumTest {
 
 	@BeforeAll
 	public void init() throws MalformedURLException {
-		WebDriverHelper helper = new WebDriverHelper();
-		driver = helper.driver;
+		driver = WebDriverHelper.getWebDriver();
 		driver.get("https://www.roomstogo.com");		
 		utils.waitForPageToLoad(driver);
 	}
