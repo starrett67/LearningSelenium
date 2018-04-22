@@ -1,1 +1,5 @@
 language: java
+
+sudo: required
+
+before_script: sudo chmod +x resources/chromedriver
