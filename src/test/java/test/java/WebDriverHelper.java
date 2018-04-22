@@ -29,6 +29,7 @@ public class WebDriverHelper{
 			String env = System.getProperty("env");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--no-sandbox");
+			chromeOptions.addArguments("-verbose");
 //			if (env != null && env.equals("test")) {
 //				chromeOptions.addArguments("--headless");
 //				chromeOptions.addArguments("disable-gpu");
