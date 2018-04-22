@@ -25,13 +25,10 @@ public class WebDriverHelper{
 			if (System.getProperty("os.name").contains("Windows")) {
 				driverPath += ".exe";
 			}
-			System.setProperty("webdriver.chrome.driver", driverPath);
-			String env = System.getProperty("env");
+			String chromePath = System.getProperty("CHROME_BINARY_PATH");
 			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("--no-sandbox");
-			chromeOptions.addArguments("-verbose");
-			if (env != null && env.equals("test")) {
-			    chromeOptions.setBinary("/path/to/google-chrome-stable");
+			if (chromePath != null) {
+			    chromeOptions.setBinary(chromePath);
 			    chromeOptions.addArguments("--headless");
 			    chromeOptions.addArguments("--disable-gpu");
 			}
