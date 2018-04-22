@@ -1,5 +1,6 @@
 package test.java;
 
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,11 @@ class SeleniumTest {
 
 	@BeforeAll
 	public void init() {
-		System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+		String driverPath = "resources/chromedriver";
+		if (System.getProperty("os.name").contains("Windows")) {
+			driverPath += ".exe";
+		}
+		System.setProperty("webdriver.chrome.driver", driverPath);
 		String env = System.getProperty("env");
 		ChromeOptions chromeOptions = new ChromeOptions();
 		
