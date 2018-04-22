@@ -29,10 +29,10 @@ public class WebDriverHelper{
 			String env = System.getProperty("env");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			
-			if (env != null && env.equals("test")) {
-				chromeOptions.addArguments("--headless");
-				chromeOptions.addArguments("disable-gpu");
-			}
+//			if (env != null && env.equals("test")) {
+//				chromeOptions.addArguments("--headless");
+//				chromeOptions.addArguments("disable-gpu");
+//			}
 			driver = new ChromeDriver(chromeOptions);
 	}
 
