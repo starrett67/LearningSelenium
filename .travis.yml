@@ -19,8 +19,8 @@ after_script:
   - cat target/surefire-reports/*.txt
 
 env:
-  - EMULATED_DEVICE=Nexus 5
-  - EMULATED_DEVICE=iPhone 6/7/8
-  - EMULATED_DEVICE=Galaxy S5
+  - EMULATED_DEVICE=Nexus_5
+  - EMULATED_DEVICE=iPhone_6/7/8
+  - EMULATED_DEVICE=Galaxy_S5
   - EMULATED_DEVICE=iPad
   - EMULATED_DEVICE=

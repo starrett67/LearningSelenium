@@ -30,7 +30,7 @@ public class WebDriverHelper{
 			    String device = System.getProperty("device");			    
 			    if(device != null && !device.isEmpty()) {				
 			    	Map<String, String> mobileEmulation = new HashMap<String, String>();
-					mobileEmulation.put("deviceName", device);
+					mobileEmulation.put("deviceName", device.replace('_', ' '));
 					chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 			    }
 			}
