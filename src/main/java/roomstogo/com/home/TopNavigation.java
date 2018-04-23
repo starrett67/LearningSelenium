@@ -12,9 +12,7 @@ public class TopNavigation {
 	public static enum Links {
 		CreditOptions, GiftCards, StoreLocator, OrderStatus, CustomerService
 	}
-	
-	WebElement parentContainer;
-	
+
 	// Driver
 	WebDriver driver;
 	
@@ -35,7 +33,6 @@ public class TopNavigation {
 	
 	public TopNavigation(WebDriver driver) {
 		this.driver = driver;
-		parentContainer = driver.findElement(container);
 	}
 	
 	private WebElement getElement(By by) {
