@@ -13,14 +13,14 @@ before_install:
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   
 script:
-  - mvn clean install -Dgoogle.chrome=/usr/bin/google-chrome-stable -Ddevice=$EMULATED_DEVICE -Dtimeout=30
+  - mvn clean install -Dgoogle.chrome=/usr/bin/google-chrome-stable -Ddevice="$EMULATED_DEVICE" -Dtimeout=30
 
 after_script:
   - cat target/surefire-reports/*.txt
 
 env:
-  - EMULATED_DEVICE="Nexus 5"
-  - EMULATED_DEVICE="iPhone 6/7/8"
-  - EMULATED_DEVICE="Galaxy S5"
+  - EMULATED_DEVICE=Nexus 5
+  - EMULATED_DEVICE=iPhone 6/7/8
+  - EMULATED_DEVICE=Galaxy S5
   - EMULATED_DEVICE=iPad
   - EMULATED_DEVICE=
