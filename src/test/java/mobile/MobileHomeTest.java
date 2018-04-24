@@ -1,4 +1,4 @@
-package test.java.Mobile;
+package mobile;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import roomstogo.com.utils;
 import roomstogo.com.home.Home;
 import roomstogo.com.home.MobileNavigation;
-import test.java.WebDriverHelper;
+import utils.WebDriverHelper;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class MobileHomeTest {
