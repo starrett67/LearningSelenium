@@ -41,12 +41,14 @@ public class TopNavigation {
 	
 	public void goToKidsSite() {
 		WebElement siteTab = getElement(kidsAndTeensTab);
+		System.out.println("Switching Sites: " + siteTab.getText());
 		siteTab.click();
 		utils.waitForTitleEquals(driver, "Baby & Kids Furniture: Bedroom Furniture Store");
 	}
 	
 	public void goToRoomsToGoSite() {
 		WebElement siteTab = getElement(roomToGoTab);
+		System.out.println("Switching Sites: " + siteTab.getText());
 		siteTab.click();
 		utils.waitForTitleEquals(driver, "Furniture Store: Affordable Home Furniture for Less Online");
 	}
@@ -72,6 +74,7 @@ public class TopNavigation {
 			default:
 				break;
 		}
+		System.out.println("Clicking link: " + siteLink.getText());
 		siteLink.click();
 		utils.waitForPageToLoad(driver);
 		Assertions.assertEquals(expectedUrl, driver.getCurrentUrl());

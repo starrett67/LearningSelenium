@@ -50,6 +50,7 @@ public class MobileNavigation {
 		WebElement siteTab = getElement(kidsAndTeens);
         utils.scrollToElement(driver, siteTab);
         utils.waitForElementSteady(driver, siteTab);
+		System.out.println("Switching Sites: " + siteTab.getText());
 		siteTab.click();
 		utils.waitForTitleEquals(driver, "Baby & Kids Furniture: Bedroom Furniture Store");
 	}
@@ -59,6 +60,7 @@ public class MobileNavigation {
 		WebElement siteTab = getElement(roomToGo);
         utils.scrollToElement(driver, siteTab);
         utils.waitForElementSteady(driver, siteTab);
+		System.out.println("Switching Sites: " + siteTab.getText());
 		siteTab.click();
 		utils.waitForTitleEquals(driver, "Furniture Store: Affordable Home Furniture Online");
 	}
@@ -87,6 +89,7 @@ public class MobileNavigation {
         }
         utils.scrollToElement(driver, siteLink);
         utils.waitForElementSteady(driver, siteLink);
+		System.out.println("Clicking link: " + siteLink.getText());
         siteLink.click();
         utils.waitForPageToLoad(driver);
         Assertions.assertEquals(expectedUrl, driver.getCurrentUrl());
