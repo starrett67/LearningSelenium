@@ -1,5 +1,4 @@
-## Learning Selenium
-
+## Learning Selenium [![Build Status](https://travis-ci.org/starrett67/LearningSelenium.png?branch=master)](https://travis-ci.org/starrett67/LearningSelenium)
 This is just a personal repository I am using to try my hand at selenium UI testing using java.
 
 
