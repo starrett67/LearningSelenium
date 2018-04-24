@@ -1,4 +1,4 @@
-package test.java;
+package test.java.Desktop;
 
 import java.util.List;
 
@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import roomstogo.com.utils;
 import roomstogo.com.home.Home;
 import roomstogo.com.home.TopNavigation;
+import test.java.WebDriverHelper;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class DesktopHomeTest {

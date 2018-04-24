@@ -1,4 +1,4 @@
-package test.java;
+package test.java.Mobile;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import roomstogo.com.utils;
 import roomstogo.com.home.Home;
 import roomstogo.com.home.MobileNavigation;
+import test.java.WebDriverHelper;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class MobileHomeTest {
@@ -31,15 +32,17 @@ class MobileHomeTest {
 	@Test
 	void MobileNavDrawerTest() {
 		Home homePage = new Home(driver);
-
-//		homePage.mobNav.clickNavLink(MobileNavigation.Links.CreditOptions,
-//				"https://www.roomstogo.com/view/creditOptions.jsp");
-//		homePage.mobNav.clickNavLink(MobileNavigation.Links.CustomerService,
-//				"https://www.roomstogo.com/content/Customer-Service");
+		
+		homePage.mobNav.goToKidsSite();
+		homePage.mobNav.goToRoomsToGoSite();
+		homePage.mobNav.clickNavLink(MobileNavigation.Links.CreditOptions,
+				"https://www.roomstogo.com/view/creditOptions.jsp");
+		homePage.mobNav.clickNavLink(MobileNavigation.Links.CustomerService,
+				"https://www.roomstogo.com/content/Customer-Service");
 		homePage.mobNav.clickNavLink(MobileNavigation.Links.GiftCards,
 				"https://www.roomstogo.com/product/adults/GIFT-CARD/83333333/");
-//		homePage.mobNav.clickNavLink(MobileNavigation.Links.OrderStatus, "https://www.roomstogo.com/orderstatus/");
-//		homePage.mobNav.clickNavLink(MobileNavigation.Links.StoreLocator, "https://www.roomstogo.com/storelocator/");
+		homePage.mobNav.clickNavLink(MobileNavigation.Links.OrderStatus, "https://www.roomstogo.com/orderstatus/");
+		homePage.mobNav.clickNavLink(MobileNavigation.Links.StoreLocator, "https://www.roomstogo.com/storelocator/");
 	}
 	
 	@AfterAll

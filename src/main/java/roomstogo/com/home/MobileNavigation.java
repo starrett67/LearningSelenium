@@ -11,7 +11,7 @@ import roomstogo.com.utils;
 public class MobileNavigation {
 
     public static enum Links {
-        CreditOptions, GiftCards, StoreLocator, OrderStatus, CustomerService, KidsSite, RoomsToGo
+        CreditOptions, GiftCards, StoreLocator, OrderStatus, CustomerService
     }
 
     private WebDriver driver;
@@ -27,7 +27,7 @@ public class MobileNavigation {
     // Links
     By credOptions = By.linkText("Credit Options");
     By giftCards = By.linkText("Buy Gift Cards");
-    By storeLocator = By.linkText("Find A Store");
+    By storeLocator = By.linkText("Store Locator");
     By orderStatus = By.linkText("Order Status");
     By customerService = By.linkText("Customer Service");
 
@@ -44,6 +44,24 @@ public class MobileNavigation {
         WebElement nav = driver.findElement(navDrawer);
         nav.click();
     }
+    
+    public void goToKidsSite() {
+        openNavDrawer();
+		WebElement siteTab = getElement(kidsAndTeens);
+        utils.scrollToElement(driver, siteTab);
+        utils.waitForElementSteady(driver, siteTab);
+		siteTab.click();
+		utils.waitForTitleEquals(driver, "Baby & Kids Furniture: Bedroom Furniture Store");
+	}
+	
+	public void goToRoomsToGoSite() {
+        openNavDrawer();
+		WebElement siteTab = getElement(roomToGo);
+        utils.scrollToElement(driver, siteTab);
+        utils.waitForElementSteady(driver, siteTab);
+		siteTab.click();
+		utils.waitForTitleEquals(driver, "Furniture Store: Affordable Home Furniture Online");
+	}
 
     public void clickNavLink(Links link, String expectedUrl) {
         WebElement siteLink = null;
@@ -64,16 +82,11 @@ public class MobileNavigation {
             case CustomerService:
                 siteLink = getElement(customerService);
                 break;
-            case KidsSite:
-            	siteLink = getElement(kidsAndTeens);
-            	break;
-            case RoomsToGo:
-            	siteLink = getElement(roomToGo);
-            	break;
             default:
                 break;
         }
-        utils.waitForElementClickable(driver, siteLink);
+        utils.scrollToElement(driver, siteLink);
+        utils.waitForElementSteady(driver, siteLink);
         siteLink.click();
         utils.waitForPageToLoad(driver);
         Assertions.assertEquals(expectedUrl, driver.getCurrentUrl());

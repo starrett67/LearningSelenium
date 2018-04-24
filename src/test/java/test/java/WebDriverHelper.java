@@ -19,14 +19,14 @@ public class WebDriverHelper {
 	}
 
 	private static void init() {
-		String chromePath = "resources/chromedriver"; //System.getProperty("google.chrome");
+		String chromePath = System.getProperty("google.chrome");
 		ChromeOptions chromeOptions = new ChromeOptions();
 		if (chromePath != null) {
-//			chromeOptions.setBinary(chromePath);
-//			chromeOptions.addArguments("--headless");
-//			chromeOptions.addArguments("--disable-gpu");
+			chromeOptions.setBinary(chromePath);
+			chromeOptions.addArguments("--headless");
+			chromeOptions.addArguments("--disable-gpu");
 
-			String device = "Galaxy_S5";//System.getProperty("device");
+			String device = System.getProperty("device");
 			if (device != null && !device.isEmpty()) {
 				Map<String, String> mobileEmulation = new HashMap<String, String>();
 				mobileEmulation.put("deviceName", device.replace('_', ' '));

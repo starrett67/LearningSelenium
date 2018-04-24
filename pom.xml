@@ -16,7 +16,7 @@
 		<selenium.version>3.11.0</selenium.version>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
-		<runSuite>Desktop</runSuite>
+		<testSuite>Desktop</testSuite>
 	</properties>
 
 	<dependencies>
@@ -80,7 +80,7 @@
 					</dependencies>
 					<configuration>
 					 <includes>
-					  <include>**/*${testType}*Test*</include>
+					  <include>**/${testSuite}/*Test*</include>
 					 </includes>
 					</configuration>
 				</plugin>
