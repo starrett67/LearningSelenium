@@ -16,6 +16,7 @@
 		<selenium.version>3.11.0</selenium.version>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
+		<runSuite>Desktop</runSuite>
 	</properties>
 
 	<dependencies>
@@ -23,11 +24,6 @@
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>${junit.jupiter.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.tngtech.java</groupId>
-			<artifactId>junit-dataprovider</artifactId>
-			<version>1.13.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -70,11 +66,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.19.1</version>
-					<configuration>
-						<systemPropertyVariables>
-							<env>test</env>
-						</systemPropertyVariables>
-					</configuration>
 					<dependencies>
 						<dependency>
 							<groupId>org.junit.platform</groupId>
@@ -87,6 +78,11 @@
 							<version>${junit.jupiter.version}</version>
 						</dependency>
 					</dependencies>
+					<configuration>
+					 <includes>
+					  <include>**/*${testType}*Test*</include>
+					 </includes>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>

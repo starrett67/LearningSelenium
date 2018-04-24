@@ -11,13 +11,13 @@ import roomstogo.com.utils;
 public class MobileNavigation {
 
     public static enum Links {
-        CreditOptions, GiftCards, StoreLocator, OrderStatus, CustomerService
+        CreditOptions, GiftCards, StoreLocator, OrderStatus, CustomerService, KidsSite, RoomsToGo
     }
 
     private WebDriver driver;
 
     //container
-    private By container = By.id("mainHeader");
+    private By container = By.id("mNav");
 
     // Nav Drawer
     By navDrawer = By.id("navOpen");
@@ -26,7 +26,7 @@ public class MobileNavigation {
     By kidsAndTeens = By.linkText("Rooms To Go Kids Furniture");
     // Links
     By credOptions = By.linkText("Credit Options");
-    By giftCards = By.linkText("Buy Gift Card");
+    By giftCards = By.linkText("Buy Gift Cards");
     By storeLocator = By.linkText("Find A Store");
     By orderStatus = By.linkText("Order Status");
     By customerService = By.linkText("Customer Service");
@@ -40,25 +40,14 @@ public class MobileNavigation {
         return driver.findElement(container).findElement(by);
     }
 
-    public void goToKidsSite() {
-        WebElement siteTab = getElement(kidsAndTeens);
-        siteTab.click();
-        utils.waitForTitleEquals(driver, "Baby & Kids Furniture: Bedroom Furniture Store");
-    }
-
-    public void goToRoomsToGoSite() {
-        WebElement siteTab = getElement(roomToGo);
-        siteTab.click();
-        utils.waitForTitleEquals(driver, "Furniture Store: Affordable Home Furniture for Less Online");
-    }
-
     public void openNavDrawer(){
-        WebElement nav = getElement(navDrawer);
+        WebElement nav = driver.findElement(navDrawer);
         nav.click();
     }
 
     public void clickNavLink(Links link, String expectedUrl) {
         WebElement siteLink = null;
+        openNavDrawer();
         switch(link) {
             case CreditOptions:
                 siteLink = getElement(credOptions);
@@ -75,9 +64,16 @@ public class MobileNavigation {
             case CustomerService:
                 siteLink = getElement(customerService);
                 break;
+            case KidsSite:
+            	siteLink = getElement(kidsAndTeens);
+            	break;
+            case RoomsToGo:
+            	siteLink = getElement(roomToGo);
+            	break;
             default:
                 break;
         }
+        utils.waitForElementClickable(driver, siteLink);
         siteLink.click();
         utils.waitForPageToLoad(driver);
         Assertions.assertEquals(expectedUrl, driver.getCurrentUrl());
