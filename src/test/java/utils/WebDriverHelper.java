@@ -25,14 +25,14 @@ public class WebDriverHelper {
 			chromeOptions.setBinary(chromePath);
 			chromeOptions.addArguments("--headless");
 			chromeOptions.addArguments("--disable-gpu");
-
-			String device = System.getProperty("device");
-			if (device != null && !device.isEmpty()) {
-				Map<String, String> mobileEmulation = new HashMap<String, String>();
-				mobileEmulation.put("deviceName", device.replace('_', ' '));
-				chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-			}
 		}
+		String device = System.getProperty("device");
+		if (device != null && !device.isEmpty()) {
+			Map<String, String> mobileEmulation = new HashMap<String, String>();
+			mobileEmulation.put("deviceName", device.replace('_', ' '));
+			chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+		}
+
 		try {
 			driver = new ChromeDriver(chromeOptions);
 		} catch (IllegalStateException ex) {

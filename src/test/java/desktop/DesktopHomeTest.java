@@ -55,7 +55,7 @@ class DesktopHomeTest {
 		Home homePage = new Home(driver);
 
 		List<WebElement> brokenLinks = homePage.findBrokenLinks();
-		Assertions.assertEquals(brokenLinks.size(), 0);
+		Assertions.assertEquals(0, brokenLinks.size());
 	}
 
 	@AfterAll
